@@ -6,6 +6,8 @@ import { RedocModule, RedocOptions } from 'nestjs-redoc'
 import { VersioningType } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
+import * as bodyParser from 'body-parser'
+
 declare const module: any
 
 async function bootstrap() {
@@ -20,6 +22,9 @@ async function bootstrap() {
   app.enableVersioning({
     type: VersioningType.URI,
   })
+
+  app.use(bodyParser.json({ limit: '50mb' }))
+  app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
 
   app.enableCors({
     origin: [process.env.CORS_LINK],

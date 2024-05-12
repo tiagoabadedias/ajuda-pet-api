@@ -17,7 +17,7 @@ import {
 export class DataDto {
   @ApiPropertyOptional()
   @IsNotEmpty()
-  data: JSON
+  data: any
 
   @IsNotEmpty()
   @IsString()
