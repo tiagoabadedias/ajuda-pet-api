@@ -17,6 +17,9 @@ export class Data {
   type: String
 
   @Prop()
+  organizationId: String
+
+  @Prop()
   createdAt: Date
 
   @Prop()
