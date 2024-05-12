@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "projeto",
   "license": "MIT",
+  "engines": {
+    "node": "10.13.0"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
