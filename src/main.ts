@@ -62,6 +62,6 @@ async function bootstrap() {
   await RedocModule.setup('/docs', app, document, redocOptions)
   await SwaggerModule.setup('/api', app, document)
 
-  await app.listen(process.env.API_PORT)
+  await app.listen(process.env.PORT)
 }
 bootstrap()
