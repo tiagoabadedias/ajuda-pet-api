@@ -35,7 +35,11 @@ export class DataQueryDto {
 
   @IsOptional()
   @IsString()
-  organizationId: string
+  sex: string
+
+  @IsOptional()
+  @IsString()
+  searchTerm: string
 }
 
 export class DataParamsDto {

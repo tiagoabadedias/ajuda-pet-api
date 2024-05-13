@@ -13,11 +13,14 @@ export class DataController {
   @Get('query')
   @ApiOperation({ summary: 'Search for datas by params' })
   @ApiResponse({ status: 200, description: 'Result.' })
-  async getDataUrlEndereco(@Req() request: Request, @Query(new ValidationPipe({ whitelist: true, transform: true })) query: DataQueryDto): Promise<any> {
+  async getDataQuery(@Req() request: Request, @Query(new ValidationPipe({ whitelist: true, transform: true })) query: DataQueryDto): Promise<any> {
     let where = {}
 
-    if (query.type) where = { type: query.type }
+    if (query.type && query.type !== 'TODOS') where['data.typePet'] = query.type
+    if (query.sex && query.sex !== 'TODOS') where['data.sex'] = query.sex
+    if (query.searchTerm) where['data.observation'] = { $regex: query.searchTerm, $options: 'i' }
 
+    console.log(query)
     let data = await this._dataService.findQuery(where)
 
     return data
