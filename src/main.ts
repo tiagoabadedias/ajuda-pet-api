@@ -27,7 +27,7 @@ async function bootstrap() {
   app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
 
   app.enableCors({
-    origin: [process.env.CORS_LINK],
+    origin: ['http://localhost:4200/', 'http://localhost:4200'],
     methods: process.env.CORS_METHODS,
     allowedHeaders: process.env.CORS_HEADERS,
   })
