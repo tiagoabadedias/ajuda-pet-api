@@ -27,7 +27,14 @@ async function bootstrap() {
   app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
 
   app.enableCors({
-    origin: ['http://localhost:4200/', 'http://localhost:4200'],
+    origin: [
+      'http://localhost:4200/',
+      'http://localhost:4200',
+      'https://ajudapet-rs.vercel.app/',
+      'https://ajudapet-rs.vercel.app',
+      'http://ajudapet-rs.vercel.app/',
+      'http://ajudapet-rs.vercel.app',
+    ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: process.env.CORS_HEADERS,
   })
