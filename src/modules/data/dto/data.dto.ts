@@ -23,7 +23,8 @@ export class DataDto {
   @IsString()
   type: string
 
-  @IsNotEmpty()
+  @ApiPropertyOptional()
+  @IsOptional()
   @IsString()
   organizationId: string
 }
